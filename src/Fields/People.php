@@ -29,7 +29,7 @@ class People extends Field
         ]);
 
         $People
-            ->setLocation('post_type', '==', 'person');
+            ->setLocation('post_type', '==', 'people');
 
         $People
             ->addText('position', [
