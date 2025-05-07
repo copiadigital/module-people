@@ -30,7 +30,7 @@ class People extends Composer
     public function getGroups()
     {
         $groups = get_categories([
-            'taxonomy' => 'group',
+            'taxonomy' => 'people_group',
             'hide_empty' => false,
         ]);
 
@@ -42,7 +42,7 @@ class People extends Composer
         global $post;
 
         $args = array(
-            'post_type'=> 'person',
+            'post_type'=> 'people',
             'posts_per_page' => -1,
             'post_status' => 'publish',
             'paged' => get_query_var('paged') ?: 1,
@@ -60,7 +60,7 @@ class People extends Composer
                 $fields['position'] = get_field('position');
                 $fields['descriptions'] = get_field('descriptions');
                 $fields['photo'] = get_field('photo');
-                $fields['teams'] = implode(' ', wp_get_post_terms($post->ID, 'group', array('fields' => 'slugs')));
+                $fields['teams'] = implode(' ', wp_get_post_terms($post->ID, 'people_group', array('fields' => 'slugs')));
                 $this->peoples[] = $fields;
             }
             wp_reset_postdata();

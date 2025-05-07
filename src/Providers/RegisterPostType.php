@@ -30,7 +30,7 @@ class RegisterPostType implements Provider
             ]),
         );
 
-        array_push($types, CPT::createTaxonomy('group', 'people'));
+        array_push($types, CPT::createTaxonomy('people_group', 'people', 'Group'));
 
         $types = apply_filters('people_tax_before_insert', $types);
 
