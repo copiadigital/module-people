@@ -22,9 +22,11 @@ class People
                 'label' => 'Show people from',
                 'required' => 0,
                 '_name' => 'groups',
-                'taxonomy' => 'group',
+                'taxonomy' => 'people_group',
                 'field_type' => 'checkbox',
                 'add_term' => 0,
+                'save_terms' => 0,
+                'load_terms' => 0,
                 'return_format' => 'object',
             ]);
     }

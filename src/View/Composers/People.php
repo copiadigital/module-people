@@ -6,8 +6,6 @@ use WP_Query;
 
 class People extends Composer
 {
-    use PostsTrait;
-
     /**
      * List of views served by this composer.
      *
