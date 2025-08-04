@@ -69,12 +69,10 @@ class PeopleServiceProvider implements Provider
 
         // Register views
         if ( function_exists( '\Roots\view' ) ) {
-            \Roots\view()->addNamespace('People', dirname(dirname(__DIR__)) . '/resources/views/');
-
-            // \Roots\view('People::partials.builder.people', ['test' => 'variable'])->render();
+            View::addLocation(dirname(dirname(__DIR__)) . '/resources/views');
         }
 
-        View::composer('People::partials.builder.people', PeopleComposer::class);
+        View::composer('partials.builder.people', PeopleComposer::class);
 
     }
 }
