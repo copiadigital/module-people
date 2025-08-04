@@ -15,6 +15,11 @@ class People extends Composer
         'partials.builder.people',
     ];
 
+    /**
+     * @var WP_Post[]
+     */
+    private $peoples = [];
+
     public function with()
     {
         $this->fetchPerson();
