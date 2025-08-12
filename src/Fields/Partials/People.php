@@ -2,42 +2,28 @@
 
 namespace People\Fields\Partials;
 
+use Log1x\AcfComposer\Partial;
 use StoutLogic\AcfBuilder\FieldsBuilder;
-use People\Providers\PeopleServiceProvider;
 
-class People
+class People extends Partial
 {
-    protected $fields;
-
-    public function __construct()
-    {
-        $parent_layout_key = PeopleServiceProvider::$parent_layout_key;
-        $subfield_key = 'people';
-        $final_key = $parent_layout_key . '_' . $subfield_key;
-
-        $this->fields = new FieldsBuilder($final_key);
-
-        $this->fields
-            ->addTaxonomy('groups', [
-                'label' => 'Show people from',
-                'required' => 0,
-                '_name' => 'groups',
-                'taxonomy' => 'people_group',
-                'field_type' => 'checkbox',
-                'add_term' => 0,
-                'save_terms' => 0,
-                'load_terms' => 0,
-                'return_format' => 'object',
-            ]);
-    }
-
     /**
-     * Get the built fields for the partial
+     * The partial field group.
      *
      * @return array
      */
-    public function register(): array
+    public function fields()
     {
-        return $this->fields->build();
+        $Fields = new FieldsBuilder('people');
+
+        $Fields
+            ->addTaxonomy('groups', [
+                'label' => 'Show people from',
+                'taxonomy' => 'people_group',
+                'field_type' => 'checkbox',
+                'return_format' => 'object',
+            ]);
+
+        return $Fields;
     }
 }
