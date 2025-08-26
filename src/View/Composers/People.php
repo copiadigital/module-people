@@ -16,6 +16,11 @@ class People extends Composer
     ];
 
     /**
+     * @var WP_Query
+     */
+    private $query;
+
+    /**
      * @var WP_Post[]
      */
     private $peoples = [];
