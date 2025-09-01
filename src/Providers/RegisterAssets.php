@@ -14,8 +14,8 @@ class RegisterAssets implements Provider
         //
     }
 
-    public function enqueue() {
-
-        wp_enqueue_script('people.js', get_template_directory_uri() . '/modules/people/public/scripts/people.js', ['jquery'], null, true);
+    public function enqueue()
+    {
+        wp_enqueue_script('people.js', asset('scripts/modules/people.js')->uri(), ['vendor', 'jquery'], null, true);
     }
 }
